@@ -1,0 +1,103 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+<!--MOVER HACIA ABAJO AL PRESIONAR OPCION EN CAROUSEL-->
+    <nav>
+        <div class="nav-wrapper cyan lighten-1">
+            <a href="#" class="brand-logo center">Logo</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="sass.html"></a></li>
+                <li><a href="badges.html"></a></li>
+                <li><a href="collapsible.html"></a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <h2 class="menu">Categorias</h2>
+        <div class="carousel">
+
+            <a class="carousel-item" href="#one!"><img src="https://picsum.photos/400"></a>
+            <a class="carousel-item" href="#two!"><img src="https://picsum.photos/400"></a>
+            <a class="carousel-item" href="#three!"><img src="https://picsum.photos/400"></a>
+            <a class="carousel-item" href="#four!"><img src="https://picsum.photos/400"></a>
+            <a class="carousel-item" href="#five!"><img src="https://picsum.photos/400"></a>
+        </div>
+
+
+        <div class="container-cards">
+            <h2 class="menu">Menu</h2>
+                    
+    
+
+                       
+
+            <div class="row">
+                <% results.forEach((alimento)=>{ %>
+                <div class="col s12 m4">
+                    <div class="card medium">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="https://picsum.photos/600">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4"> <%= alimento.nombre_alimento %> <i class="material-icons right">more_vert</i></span>
+                            <p><a href="#"><%= alimento.precio %></a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"> <%= alimento.nombre_alimento %> <i class="material-icons right">close</i></span>
+                            <p><%= alimento.descripcion %></p>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+            
+
+
+
+        </div>
+    </main>
+
+    <footer class="page-footer cyan lighten-1">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Nombre Restaurant</h5>
+                    <p class="grey-text text-lighten-4">Info restaurant.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2023 Copyright Text
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var images = document.querySelectorAll('.carousel');
+            var instances = M.Carousel.init(images);
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

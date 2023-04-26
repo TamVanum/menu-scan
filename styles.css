@@ -1,0 +1,23 @@
+.container-cards{
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+}
+
+.container-crud{
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+}
+
+.menu{
+    text-align: center;
+}
+
+
+.wrapper {
+    background-color: black;
+    height: 1px;
+    margin: 32px 0 0;
+    text-align: center;
+}
