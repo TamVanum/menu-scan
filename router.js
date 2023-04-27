@@ -1,7 +1,6 @@
 const express = require('express');
-const router = express.Router();
-
 const conexion = require('./database/db');
+const router = express.Router();
 
 router.get('/', (req,res) =>{
 
@@ -32,6 +31,10 @@ router.get('/alimentocrud', (req, res) =>{
     })
 })
 
+router.get('/crearalimento', (req, res) =>{
+    res.render('crearalimento')
+})
+
 router.get('/categoriacrud', (req, res) =>{
     conexion.query('SELECT * FROM categoria', (error, results) =>{
         if(error){
@@ -41,6 +44,10 @@ router.get('/categoriacrud', (req, res) =>{
         }
     })
 })
+
+
+const crud = require('./controller/crud');
+router.post('/GuardarAlimento', crud.GuardarAlimento);
 
 
 module.exports = router; 
