@@ -17,4 +17,30 @@ router.get('/', (req,res) =>{
 
 });
 
+router.get('/intranet', (req, res) =>{
+    res.render('intranet')
+})
+
+
+router.get('/alimentocrud', (req, res) =>{
+    conexion.query('SELECT * FROM alimento', (error, results) =>{
+        if(error){
+            throw error;
+        }else{
+            res.render('alimentocrud', {results:results});
+        }
+    })
+})
+
+router.get('/categoriacrud', (req, res) =>{
+    conexion.query('SELECT * FROM categoria', (error, results) =>{
+        if(error){
+            throw error;
+        }else{
+            res.render('categoriacrud', {results:results});
+        }
+    })
+})
+
+
 module.exports = router; 
