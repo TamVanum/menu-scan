@@ -51,8 +51,8 @@
                 <td> <%= alimento.descripcion %></td>
             
                 <td>
-                    <a href="crearalimento" class="btn btn-outline-info">editar</a>
-                    <a href="" class="btn btn-outline-danger">eliminar</a>
+                    <a href="/editarAlimento/<%= alimento.alimento_id%>" class="btn btn-outline-info">editar</a>
+                    <a href="/deshabilitarAlimento/<%= alimento.alimento_id%>" class="btn btn-outline-danger">eliminar</a>
                 </td>
             </tr>
             <%})%>

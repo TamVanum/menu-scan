@@ -24,6 +24,13 @@
     <!--FIN NAV-->
     <br>
     <main>
+
+        
+        <div class="row">
+            <div class="col m6 m6 ">
+                <a class="waves-effect waves-light btn cyan lighten-1" href="crearcategoria">Crear nueva categoria</a>
+            </div>
+        </div>
         
         
         <table class="centered">
@@ -42,7 +49,7 @@
             
                 <td>
                     <a href="" class="btn btn-outline-info">editar</a>
-                    <a href="" class="btn btn-outline-danger">eliminar</a>
+                    <a href="/deshabilitarCategoria/<%= categoria.categoria_id %>" class="btn btn-outline-danger">eliminar</a>
                 </td>
             </tr>
             <%})%>
