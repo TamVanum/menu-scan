@@ -22,7 +22,7 @@ router.get('/intranet', (req, res) =>{
 
 //DESPLIEGUE DE INFORMACION DE ALIMENTO
 router.get('/alimentocrud', (req, res) =>{
-    conexion.query('SELECT * FROM alimento WHERE estado_alimento_id_fk = 1', (error, results) =>{
+    conexion.query('SELECT alimento.nombre_alimento, alimento.precio, alimento.descripcion, categoria.nombre_categoria AS catego FROM alimento INNER JOIN categoria ON alimento.categoria_id_fk = categoria.categoria_id WHERE estado_alimento_id_fk = 1', (error, results) =>{
         if(error){
             throw error;
         }else{
