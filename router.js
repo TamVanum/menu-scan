@@ -14,7 +14,6 @@ router.get('/', (req,res) =>{
         
     });
     
-
 });
 
 router.get('/intranet', (req, res) =>{
@@ -42,11 +41,14 @@ router.get('/editaralimento/:id', (req, res)=>{
 
     const id = req.params.id;
     conexion.query('SELECT * FROM alimento WHERE alimento_id = ?', [id], (error, results)=>{
-        if(error){
-            throw error;
-        }else{
-            res.render('editaralimento', {tipo:results[0]});
-        }
+        if(error) throw error;
+
+        conexion.query('SELECT * FROM categoria WHERE estado_categoria_id_fk = 1', (errorcategoria, categoria) =>{
+            
+            if(errorcategoria) throw errorcategoria;
+
+            res.render('editaralimento', {results : results[0] , categoria:categoria})
+        })
     })
 })
 
@@ -80,7 +82,7 @@ router.get('/categoriacrud', (req, res) =>{
     })
 })
 
-//DESHABILITAR ALIMENTO
+//DESHABILITAR CATEGORIA
 router.get('/deshabilitarCategoria/:id', (req, res)=>{
 
     const id = req.params.id;
@@ -94,10 +96,24 @@ router.get('/deshabilitarCategoria/:id', (req, res)=>{
 })
 
 
+//VISTA DE EDICION DE CATEGORIA
+router.get('/editarcategoria/:id', (req, res)=>{
+
+    const id = req.params.id;
+    conexion.query('SELECT * FROM categoria WHERE categoria_id = ?', [id], (error, results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('editarcategoria', {tipo:results[0]});
+        }
+    })
+})
+
 const crud = require('./controller/crud');
 router.post('/GuardarAlimento', crud.GuardarAlimento);
 router.post('/EditarAlimento', crud.EditarAlimento);
 router.post('/GuardarCategoria', crud.GuardarCategoria);
+router.post('/EditarCateforia', crud.EditarAlimento);
 
 
 module.exports = router; 

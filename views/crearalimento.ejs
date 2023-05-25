@@ -24,7 +24,10 @@
     <!--FIN NAV-->
     <br>
     <main>
+        <div class="container">
 
+            
+        </div>
         
         <div class="row" style="padding: 2%;">
             <div class="col s12 m12">
@@ -33,14 +36,15 @@
                         <span class="card-title">Creacion de Alimento</span>
                     </div>
                     <br>
+                    
                     <div class="row" style="padding: 2%;">
                         <form action="GuardarAlimento" method="POST"  class="col s12">
-                                <div class="input-field col s6">
+                                <div class="input-field col m6 s12">
                                     <input placeholder="Nombre" id="first_name" type="text" class="validate" id="nombre" name="nombre">
                                     <label for="first_name">Nombre</label>
                                 </div>
                                 
-                                <div class="file-field input-field col s6 m6">
+                                <div class="file-field input-field col s12 m6">
                                     <div class="btn cyan lighten-1">
                                         <span>Foto</span>
                                         <input type="file">
@@ -50,12 +54,12 @@
                                     </div>
                                 </div>
                                 
-                                <div class="input-field col s6">
+                                <div class="input-field col m6 s12">
                                     <input placeholder="precio" id="first_name" type="text" class="validate" id="precio" name="precio">
                                     <label for="first_name">Precio</label>
                                 </div>
                                 
-                                <div class="input-field col s6"> <!--SELECCIONAR CATEGORIA-->
+                                <div class="input-field col m6 s12"> <!--SELECCIONAR CATEGORIA-->
                                     <select id="categoria" name="categoria">
                                         <option value="" disabled selected>Categoria</option>
                                         <option value="1">Fondo</option>
@@ -63,7 +67,7 @@
                                     </select>
                                     <label>Categoria</label>
                                 </div>
-                                <div class="input-field col s6">
+                                <div class="input-field col m6 s12">
                                     <input placeholder="descripcion" id="first_name" type="text" class="validate" id="descripcion" name="descripcion">
                                     <label for="first_name">Descripcion</label>
                                 </div>

@@ -2,10 +2,16 @@ const express = require('express');
 const { json } = require('express');
 const app = express();
 
-app.set('view engine', 'ejs');
-
 app.use(express.urlencoded({extended:false}));
 app.use(express(json)); 
+
+app.set('view engine', 'ejs');
+
+//Motor de plantillas
+//app.set('views', path.join(__dirname,'views'));
+
+//Permitir ver imagenes señores
+//app.use(express.static(path.join(__dirname,'public')));
 
 app.use('/', require('./router'));
 

@@ -1,25 +1,13 @@
-CREATE TABLE estadocategoria(
-    estado_categoria_id int AUTO_INCREMENT PRIMARY KEY,
-    nombre varchar(50)
-);
-
 CREATE TABLE estadoalimento(
     estado_alimento_id int AUTO_INCREMENT PRIMARY KEY,
     nombre varchar(50)
 );
     
-CREATE TABLE Categoria(
-    categoria_id int AUTO_INCREMENT PRIMARY KEY,
 CREATE TABLE estadocategoria(
     estado_categoria_id int AUTO_INCREMENT PRIMARY KEY,
     nombre varchar(50)
 );
 
-CREATE TABLE estadoalimento(
-    estado_alimento_id int AUTO_INCREMENT PRIMARY KEY,
-    nombre varchar(50)
-);
-    
 CREATE TABLE Categoria(
     categoria_id int AUTO_INCREMENT PRIMARY KEY,
     nombre_categoria varchar(50) UNIQUE NOT NULL,
