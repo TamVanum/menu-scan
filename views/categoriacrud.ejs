@@ -25,38 +25,37 @@
     <br>
     <main>
         
-        <div class="container">
-            <div class="row">
-                <div class="col m6 m6 ">
-                    <a class="waves-effect waves-light btn cyan lighten-1" href="crearcategoria">Crear nueva categoria</a>
-                </div>
+
+        <div class="row">
+            <div class="col m6 m6 ">
+                <a class="waves-effect waves-light btn cyan lighten-1" href="crearcategoria">Crear nueva categoria</a>
             </div>
-            
-            
-            <table class="centered">
-                <thead>
-                <tr>
-                    <th>NOMBRE</th>
-                    <th>ACCION</th>
-    
-                </tr>
-            </thead>
-    
-                <tbody>
-                <% results.forEach((categoria) => { %>
-                <tr>
-                    <td> <%= categoria.nombre_categoria %></td>
-                
-                    <td>
-                        <a href="/editarcategoria/<%= categoria.categoria_id %>" class="btn btn-outline-info">editar</a>
-                        <a href="/deshabilitarCategoria/<%= categoria.categoria_id %>" class="btn btn-outline-danger">eliminar</a>
-                    </td>
-                </tr>
-                <%})%>
-                </tbody>
-            </table>
         </div>
         
+        
+        <table class="centered">
+            <thead>
+            <tr>
+                <th>NOMBRE</th>
+                <th>ACCION</th>
+
+            </tr>
+        </thead>
+
+            <tbody>
+            <% results.forEach((categoria) => { %>
+            <tr>
+                <td> <%= categoria.nombre_categoria %></td>
+            
+                <td>
+                    <a href="/editarcategoria/<%= categoria.categoria_id %>" class="btn btn-outline-info">editar</a>
+                    <a href="/deshabilitarCategoria/<%= categoria.categoria_id %>" class="btn btn-outline-danger">eliminar</a>
+                </td>
+            </tr>
+            <%})%>
+            </tbody>
+        </table>
+
 
 
     </main>

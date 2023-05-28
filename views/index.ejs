@@ -25,43 +25,35 @@
     <main>
         <h2 class="center">Categorias</h2>
         <div class="carousel">
-
-            <a class="carousel-item" href="#one!"><img src="https://picsum.photos/400"></a>
-            <a class="carousel-item" href="#two!"><img src="https://picsum.photos/400"></a>
-            <a class="carousel-item" href="#three!"><img src="https://picsum.photos/400"></a>
-            <a class="carousel-item" href="#four!"><img src="https://picsum.photos/400"></a>
-            <a class="carousel-item" href="#five!"><img src="https://picsum.photos/400"></a>
+            <% categorias.forEach((categoria)=>{ %>
+                <a class="carousel-item" href="#one!"><img src="img/<%= categoria.foto_categoria %>"></a>
+            <% }) %>
         </div>
-
-        <form action="/upload" method="POST" enctype="multipart/form-data">
-            <input type="file" name="image" id="image">
-            <button type="submit">subir</button>
-        </form>
 
         <div class="container-cards">
             <h2 class="center">Menu</h2>
 
             <div class="row" style="padding: 0% 10% 0% 10%;">
-                <% results.forEach((alimento)=>{ %>
+                <% alimentos.forEach((alimento)=>{ %>
                 <div class="col s12 m4">
                     <div class="card medium">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="https://picsum.photos/600">
+                            <img class="activator" src="img/<%= alimento.foto_alimento %>">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4"> <%= alimento.nombre_alimento %> <i class="material-icons right">more_vert</i></span>
+                            <span class="card-title activator grey-text text-darken-4"> <%= alimento.nombre_alimento %><i class="material-icons right">more_vert</i></span>
                             <p><a href="#"><%= alimento.precio %></a></p>
+                            <a class="waves-effect waves-light btn-small" onclick="agregarValor(<%= alimento.precio %>)">Button</a>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"> <%= alimento.nombre_alimento %> <i class="material-icons right">close</i></span>
                             <p><%= alimento.descripcion %></p>
                         </div>
+                        
                     </div>
                 </div>
                 <% }) %>
             </div>
-            
-
 
 
         </div>
@@ -91,6 +83,21 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        var preciosSeleccionados = [];
+        var suma;
+
+        function agregarValor(precio) {
+            preciosSeleccionados.push(precio);
+            console.log(preciosSeleccionados);
+
+            suma = preciosSeleccionados.reduce(function(acumulador, valorActual) {
+                return acumulador + valorActual;
+            }, 0);
+            console.log("total: "+ suma);
+        }
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

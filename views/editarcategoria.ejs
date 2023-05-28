@@ -36,7 +36,7 @@
 
                     <% if(tipo){ %>
                     <div class="row" style="padding: 2%;">
-                        <form action="EditarCategoria" method="POST"  class="col s12">
+                        <form action="/EdicionCategoria" method="POST" enctype="multipart/form-data" class="col s12">
                                 <div class="input-field col s6">
                                     <input placeholder="Nombre" id="first_name" type="text" class="validate" id="nombre" name="nombre" value=" <%= tipo.nombre_categoria %>">
                                     <label for="first_name">Nombre</label>
@@ -45,7 +45,7 @@
                                 <div class="file-field input-field col s6 m6">
                                     <div class="btn cyan lighten-1">
                                         <span>Foto</span>
-                                        <input type="file" id="foto">
+                                        <input type="file" name="image" id="image">
                                     </div>
                                     <div class="file-path-wrapper">
                                         <input class="file-path validate" type="text">

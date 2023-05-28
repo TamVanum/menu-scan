@@ -6,19 +6,24 @@ const router = express.Router();
 
 //MENU PRINCIPAL
 router.get('/', (req,res) =>{
-    conexion.query('SELECT * FROM alimento WHERE estado_alimento_id_fk = 1', (error, results)=>{
-        if(error){
-            throw error;
-        }else{
-            res.render('index',{results:results});
-        }
+
+    conexion.query("SELECT * FROM categoria WHERE estado_categoria_id_fk = 1", (error, categorias)=>{
+
+        conexion.query('SELECT * FROM alimento WHERE estado_alimento_id_fk = 1', (error, alimentos)=>{
+            if(error){
+                throw error;
+            }else{
+                res.render('index',{categorias:categorias, alimentos:alimentos});
+            }
+            
+        });
         
-    });
-    
+    })
+
 });
 
 router.post('/upload', (req, res)=>{
-    console.log(req.file.originalname);
+    console.log(req.file.filename);
     res.send('uploadeado');
 })
 
@@ -39,7 +44,13 @@ router.get('/alimentocrud', (req, res) =>{
 
 //VISTA DE CREACION DE ALIMENTO
 router.get('/crearalimento', (req, res) =>{
-    res.render('crearalimento')
+    conexion.query("SELECT * FROM categoria WHERE estado_categoria_id_fk = 1", (error, categorias)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('crearalimento',{categorias:categorias});
+        }
+    })
 })
 
 //VISTA DE EDICION DE ALIMENTO
@@ -119,7 +130,7 @@ const crud = require('./controller/crud');
 router.post('/GuardarAlimento', crud.GuardarAlimento);
 router.post('/EditarAlimento', crud.EditarAlimento);
 router.post('/GuardarCategoria', crud.GuardarCategoria);
-router.post('/EditarCateforia', crud.EditarAlimento);
+router.post('/EdicionCategoria', crud.EdicionCategoria);
 
 
 module.exports = router; 

@@ -35,7 +35,7 @@
                     <br>
                     <% if(results){ %>
                     <div class="row" style="padding: 2%;">
-                        <form action="/EditarAlimento" method="POST"  class="col s12">
+                        <form action="/EditarAlimento" method="POST" enctype="multipart/form-data" class="col s12">
                             <input id="id" name="id" value=" <%= results.alimento_id %>" hidden>
                                 <div class="input-field col s6">
                                     <input placeholder="Nombre" id="first_name" type="text" class="validate" id="nombre" name="nombre" value=" <%= results.nombre_alimento %>">
@@ -45,7 +45,7 @@
                                 <div class="file-field input-field col s6 m6">
                                     <div class="btn cyan lighten-1">
                                         <span>Foto</span>
-                                        <input type="file">
+                                        <input type="file" name="image" id="image">
                                     </div>
                                     <div class="file-path-wrapper">
                                         <input class="file-path validate" type="text">

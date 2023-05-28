@@ -2,6 +2,7 @@ const express = require('express');
 const { json } = require('express');
 const path = require('path');
 const multer = require('multer');
+const { v4 : uuidv4 } = require('uuid');
 
 const app = express();
 
@@ -13,7 +14,7 @@ app.set('view engine', 'ejs');
 const storage = multer.diskStorage({
     destination: path.join(__dirname, 'public/img'),
     filename: (req, file , cb) =>{
-        cb(null, file.originalname);
+        cb(null, uuidv4() + '.jpg');
     }
 });
 
@@ -25,10 +26,10 @@ app.use(multer({
 
 
 //Motor de plantillas
-//app.set('views', path.join(__dirname,'views'));
+app.set('views', path.join(__dirname,'views'));
 
 //Permitir ver imagenes señores
-//app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname,'public')));
 
 app.use('/', require('./router'));
 

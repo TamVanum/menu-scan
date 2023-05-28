@@ -38,7 +38,7 @@
                     <br>
                     
                     <div class="row" style="padding: 2%;">
-                        <form action="/upload" method="POST"  enctype="multipart/form-data" class="col s12">
+                        <form action="/GuardarAlimento" method="POST"  enctype="multipart/form-data" class="col s12">
                                 <div class="input-field col m6 s12">
                                     <input placeholder="Nombre" id="first_name" type="text" class="validate" id="nombre" name="nombre">
                                     <label for="first_name">Nombre</label>
@@ -61,9 +61,10 @@
                                 
                                 <div class="input-field col m6 s12"> <!--SELECCIONAR CATEGORIA-->
                                     <select id="categoria" name="categoria">
-                                        <option value="" disabled selected>Categoria</option>
-                                        <option value="1">Fondo</option>
-                                        <option value="2">Postre</option>
+                                        <option value="" disabled selected >Categoria</option>
+                                        <% categorias.forEach((categoria) => { %>
+                                            <option value="<%= categoria.categoria_id %>"><%= categoria.nombre_categoria %></option>
+                                        <% }) %>
                                     </select>
                                     <label>Categoria</label>
                                 </div>
