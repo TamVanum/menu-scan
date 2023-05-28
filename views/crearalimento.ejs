@@ -38,7 +38,7 @@
                     <br>
                     
                     <div class="row" style="padding: 2%;">
-                        <form action="GuardarAlimento" method="POST"  class="col s12">
+                        <form action="/upload" method="POST"  enctype="multipart/form-data" class="col s12">
                                 <div class="input-field col m6 s12">
                                     <input placeholder="Nombre" id="first_name" type="text" class="validate" id="nombre" name="nombre">
                                     <label for="first_name">Nombre</label>
@@ -47,7 +47,7 @@
                                 <div class="file-field input-field col s12 m6">
                                     <div class="btn cyan lighten-1">
                                         <span>Foto</span>
-                                        <input type="file">
+                                        <input type="file" name="image" id="image">
                                     </div>
                                     <div class="file-path-wrapper">
                                         <input class="file-path validate" type="text">
