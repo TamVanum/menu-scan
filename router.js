@@ -4,22 +4,32 @@ const router = express.Router();
 
 
 
+router.get('/login', (req, res) =>{
+    res.render('login')
+})
+
+router.get('/registro', (req, res) =>{
+    res.render('registro')
+})
+
+
 //MENU PRINCIPAL
-router.get('/', (req,res) =>{
+router.get('/index', (req,res) =>{
 
-    conexion.query("SELECT * FROM categoria WHERE estado_categoria_id_fk = 1", (error, categorias)=>{
 
-        conexion.query('SELECT * FROM alimento WHERE estado_alimento_id_fk = 1', (error, alimentos)=>{
-            if(error){
-                throw error;
-            }else{
-                res.render('index',{categorias:categorias, alimentos:alimentos});
-            }
+    conexion.query("SELECT * FROM menu WHERE id_menu = 1",(error, menu)=>{
+        conexion.query("SELECT * FROM categoria WHERE estado_categoria_id_fk = 1", (error, categorias)=>{
+            conexion.query('SELECT * FROM alimento WHERE estado_alimento_id_fk = 1', (error, alimentos)=>{
+                if(error){
+                    throw error;
+                }else{
+                    res.render('index',{menu: menu, categorias:categorias, alimentos:alimentos});
+                }
+                
+            });
             
-        });
-        
+        })
     })
-
 });
 
 router.post('/upload', (req, res)=>{
@@ -30,6 +40,42 @@ router.post('/upload', (req, res)=>{
 router.get('/intranet', (req, res) =>{
     res.render('intranet')
 })
+
+//primera vista
+router.get('/carousel/:id', (req, res) => {
+
+    const id_menu = req.params.id;
+
+    conexion.query("SELECT * FROM menu WHERE id_menu = ?",[id_menu], (error, menu) => {
+      conexion.query("SELECT * FROM categoria WHERE estado_categoria_id_fk = 1", (error, categorias) => {
+        conexion.query('SELECT * FROM alimento WHERE estado_alimento_id_fk = 1', (error, alimentos) => {
+          if (error) {
+            throw error;
+          } else {
+            res.render('carousel', { menu, categorias, alimentos });
+          }
+        });
+      });
+    });
+  });
+
+//datos cargandose
+router.get('/carousel/:id/:categoriaId', (req, res) => {
+    const id_menu = req.params.id;
+    const categoriaId = req.params.categoriaId;
+  
+    conexion.query("SELECT * FROM menu WHERE id_menu = ?",[id_menu], (error, menu) => {
+      conexion.query("SELECT * FROM categoria WHERE estado_categoria_id_fk = 1", (error, categorias) => {
+        conexion.query('SELECT * FROM alimento WHERE estado_alimento_id_fk = 1 AND categoria_id_fk = ?', [categoriaId], (error, alimentos) => {
+          if (error) {
+            throw error;
+          } else {
+            res.render('carousel', { menu, categorias, alimentos });
+          }
+        });
+      });
+    });
+  });
 
 //DESPLIEGUE DE INFORMACION DE ALIMENTO
 router.get('/alimentocrud', (req, res) =>{
@@ -116,6 +162,7 @@ router.get('/deshabilitarCategoria/:id', (req, res)=>{
 //VISTA DE EDICION DE CATEGORIA
 router.get('/editarcategoria/:id', (req, res)=>{
 
+    
     const id = req.params.id;
     conexion.query('SELECT * FROM categoria WHERE categoria_id = ?', [id], (error, results)=>{
         if(error){
@@ -131,6 +178,7 @@ router.post('/GuardarAlimento', crud.GuardarAlimento);
 router.post('/EditarAlimento', crud.EditarAlimento);
 router.post('/GuardarCategoria', crud.GuardarCategoria);
 router.post('/EdicionCategoria', crud.EdicionCategoria);
+router.post('/RegistroTienda', crud.RegistroTienda);
 
 
 module.exports = router; 

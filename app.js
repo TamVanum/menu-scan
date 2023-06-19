@@ -33,6 +33,9 @@ app.use(express.static(path.join(__dirname,'public')));
 
 app.use('/', require('./router'));
 
+
+module.exports = app;
+
 app.listen(5000, ()=>{
     console.log("SERVER andando localhost:5000");
 });

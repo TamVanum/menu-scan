@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "a": "nodemon run app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +17,8 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.22",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }
