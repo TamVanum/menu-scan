@@ -1,15 +1,18 @@
-var preciosSeleccionados = [5000, 6000, 7000];
+const test = require('node:test');
+const { strictEqual } = require('node:assert');
 
-var sumaTotal = preciosSeleccionados.reduce(function(acumulador, valorActual) {
+const preciosSeleccionados = [5000, 6000, 7000];
+
+const sumaTotal = preciosSeleccionados.reduce(function(acumulador, valorActual) {
     return acumulador + valorActual;
 }, 0);
 
 test('La suma total de los valores es correcta', () => {
-    expect(sumaTotal).toBe(18000);
+    strictEqual(sumaTotal, 18000);
 });
 
 test('La suma total de los valores es correcta', () => {
-    expect(sumaTotal).toBe(18000);
+    strictEqual(sumaTotal, 18000);
 });
 
 

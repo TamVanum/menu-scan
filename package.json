@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon run app",
-    "test": "jest"
+    "dev": "node --watch ./app.js",
+    "test": "node --test"
   },
   "keywords": [],
   "author": "",
@@ -16,9 +16,5 @@
     "express-session": "1.17.3",
     "multer": "1.4.5-lts.1",
     "mysql": "2.18.1"
-  },
-  "devDependencies": {
-    "nodemon": "2.0.22",
-    "jest": "29.5.0"
   }
 }
