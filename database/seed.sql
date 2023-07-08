@@ -95,21 +95,18 @@ VALUES
 -- DROP TABLE alimento;
 CREATE TABLE IF NOT EXISTS alimento(
     alimento_id int AUTO_INCREMENT PRIMARY KEY,
-    menu_id_fk int NOT NULL,
     categoria_id_fk int NOT NULL,
     nombre_alimento varchar(50) NOT NULL,
     foto_alimento varchar(120),
     precio int NOT NULL,
     descripcion varchar(100),
     estado_alimento_id_fk int,
-    FOREIGN KEY (menu_id_fk) REFERENCES menu(id_menu),
     FOREIGN KEY (categoria_id_fk) REFERENCES categoria(categoria_id),
     FOREIGN KEY (estado_alimento_id_fk) REFERENCES estadoalimento(estado_alimento_id)
 );
 
 INSERT INTO
     alimento (
-        menu_id_fk,
         categoria_id_fk,
         nombre_alimento,
         foto_alimento,
@@ -120,7 +117,6 @@ INSERT INTO
 VALUES
     (
         '1',
-        '1',
         'Casuela',
         '',
         '4000',
@@ -128,7 +124,6 @@ VALUES
         1
     ),
     (
-        '1',
         '1',
         'Pollo',
         '',
@@ -138,7 +133,6 @@ VALUES
     ),
     (
         '1',
-        '1',
         'Arroz',
         '',
         '7000',
@@ -146,7 +140,6 @@ VALUES
         1
     ),
     (
-        '1',
         '2',
         'Walame',
         '',

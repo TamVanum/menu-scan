@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS estadocategoria(
     nombre varchar(50)
 );
 
-CREATE TABLE IF NOT EXISTS Categoria(
+CREATE TABLE IF NOT EXISTS categoria(
     categoria_id int AUTO_INCREMENT PRIMARY KEY,
     menu_id_fk int NOT NULL,
     nombre_categoria varchar(50) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS Categoria(
     FOREIGN KEY (estado_categoria_id_fk) REFERENCES estadocategoria(estado_categoria_id)
 );
 
-CREATE TABLE IF NOT EXISTS Alimento(
+CREATE TABLE IF NOT EXISTS alimento(
     alimento_id int AUTO_INCREMENT PRIMARY KEY,
     categoria_id_fk int NOT NULL,
     nombre_alimento varchar(50) NOT NULL,

@@ -36,7 +36,7 @@ export const editarAlimento = (req, res) => {
   const data = [{
     categoria_id_fk: categoria,
     nombre_alimento: nombre,
-    foto_alimento: req.file.filename,
+    foto_alimento: req.file.filename ?? '',
     precio,
     descripcion
   }, id]
