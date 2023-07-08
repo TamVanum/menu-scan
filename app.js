@@ -3,6 +3,11 @@ const { json } = require('express');
 const path = require('path');
 const multer = require('multer');
 const session = require('express-session');
+const dotenv = require('dotenv');
+
+dotenv.config({
+  path: '.env'
+})
 
 const app = express();
 
