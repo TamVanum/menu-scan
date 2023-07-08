@@ -1,25 +1,18 @@
-const test = require('node:test');
-const { strictEqual } = require('node:assert');
+import test from 'node:test'
+import { strictEqual } from 'node:assert'
 
-const preciosSeleccionados = [5000, 6000, 7000];
+const preciosSeleccionados = [5000, 6000, 7000]
 
-const sumaTotal = preciosSeleccionados.reduce(function(acumulador, valorActual) {
-    return acumulador + valorActual;
-}, 0);
+const sumar = function (acumulador, valorActual) {
+  return acumulador + valorActual
+}
 
-test('La suma total de los valores es correcta', () => {
-    strictEqual(sumaTotal, 18000);
-});
+const sumaTotal = preciosSeleccionados.reduce(sumar, 0)
 
 test('La suma total de los valores es correcta', () => {
-    strictEqual(sumaTotal, 18000);
-});
+  strictEqual(sumaTotal, 18000)
+})
 
-
-
-
-
-
-
-
-
+test('La suma total de los valores es correcta', () => {
+  strictEqual(sumaTotal, 18000)
+})
