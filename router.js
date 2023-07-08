@@ -20,8 +20,8 @@ router.get('/admin_a', (req, res) => {
     user = req.session.menu.id_menu;
 
     sql_alimentos= `SELECT *
-    FROM Alimento a
-    JOIN Categoria c ON a.categoria_id_fk = c.categoria_id
+    FROM alimento a
+    JOIN categoria c ON a.categoria_id_fk = c.categoria_id
     JOIN estadoalimento e ON a.estado_alimento_id_fk = e.estado_alimento_id
     JOIN menu m ON c.menu_id_fk = m.id_menu
     WHERE m.id_menu = ${user};`
@@ -72,8 +72,8 @@ router.get('/editar_alimento/:id', (req, res) => {
     user = req.session.menu.id_menu;
 
     sql_alimentos= `SELECT *
-    FROM Alimento a
-    JOIN Categoria c ON a.categoria_id_fk = c.categoria_id
+    FROM alimento a
+    JOIN categoria c ON a.categoria_id_fk = c.categoria_id
     JOIN estadoalimento e ON a.estado_alimento_id_fk = e.estado_alimento_id
     JOIN menu m ON c.menu_id_fk = m.id_menu
     WHERE m.id_menu = ${user} AND a.alimento_id = ${id};`
@@ -100,8 +100,8 @@ router.get('/eliminar_alimento/:id',  (req, res)=>{
         }else{
             user = req.session.menu.id_menu;
             sql_alimentos= `SELECT *
-            FROM Alimento a
-            JOIN Categoria c ON a.categoria_id_fk = c.categoria_id
+            FROM alimento a
+            JOIN categoria c ON a.categoria_id_fk = c.categoria_id
             JOIN estadoalimento e ON a.estado_alimento_id_fk = e.estado_alimento_id
             JOIN menu m ON c.menu_id_fk = m.id_menu
             WHERE m.id_menu = ${user};`
@@ -122,8 +122,8 @@ router.get('/habilitar_alimento/:id',  (req, res)=>{
         }else{
             user = req.session.menu.id_menu;
             sql_alimentos= `SELECT *
-            FROM Alimento a
-            JOIN Categoria c ON a.categoria_id_fk = c.categoria_id
+            FROM alimento a
+            JOIN categoria c ON a.categoria_id_fk = c.categoria_id
             JOIN estadoalimento e ON a.estado_alimento_id_fk = e.estado_alimento_id
             JOIN menu m ON c.menu_id_fk = m.id_menu
             WHERE m.id_menu = ${user};`
@@ -197,9 +197,9 @@ router.get('/carousel/', (req, res) => {
     user = req.session.menu.id_menu;
 
     sql_alimentos= `SELECT *
-    FROM Alimento a
+    FROM alimento a
     JOIN estadoalimento ea ON a.estado_alimento_id_fk = ea.estado_alimento_id
-    JOIN Categoria c ON a.categoria_id_fk = c.categoria_id
+    JOIN categoria c ON a.categoria_id_fk = c.categoria_id
     JOIN estadocategoria ec ON c.estado_categoria_id_fk = ec.estado_categoria_id
     JOIN menu m ON c.menu_id_fk = m.id_menu
     WHERE m.id_menu = ${user} AND estado_alimento_id = 1 AND ec.estado_categoria_id = 1;`
@@ -214,11 +214,6 @@ router.get('/carousel/', (req, res) => {
       });
     });
   });
-
-
-
-
-
 
 const crud = require('./controller/crud');
 router.post('/GuardarAlimento', crud.GuardarAlimento);
