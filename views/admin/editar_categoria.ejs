@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -18,28 +19,37 @@
     <link href="/estilo_tienda.css" rel="stylesheet" />
     <link href="/forms.css" rel="stylesheet" />
 </head>
+
 <body>
     <div class="container-fluid px-1 py-5 mx-auto">
         <div class="row d-flex justify-content-center">
             <% if(categorias){ %>
-            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-                <div class="card" style="box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;">
-                    <h2  class="text-center mb-4">Edicion de Categoria</h2>
-                    <form class="form-card" action="/EdicionCategoria" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="formType" value="categorias">
-                        <input hidden type="text" name="id" id="id" value="<%= categorias.categoria_id %>">
-                        <div class="row justify-content-between text-left">
-                            <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Nombre Categoria</label> <input type="text" id="nombre" name="nombre" value="<%= categorias.nombre_categoria %>"> </div>
-                            <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Foto</label> <input class="form-control" type="file" id="image" name="image" value="<%= categorias.foto_categoria %>"></div>
-                        </div>
-                        <div class="row justify-content-between text-left">
-                            <div class="form-group col-12 flex-column d-flex"> <button type="submit" class="btn btn-primary text-black">Enviar</button> </div>
-                        </div>  
-                    </form>
+                <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                    <div class="card"
+                        style="box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;">
+                        <h2 class="text-center mb-4">Edicion de Categoria</h2>
+                        <form class="form-card" action="/EdicionCategoria" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="formType" value="categorias">
+                            <input hidden type="text" name="id" id="id" value="<%= categorias.categoria_id %>">
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"><label
+                                        class="form-control-label px-3">Nombre Categoria</label> <input type="text"
+                                        id="nombre" name="nombre" value="<%= categorias.nombre_categoria %>"> </div>
+                                <div class="form-group col-sm-6 flex-column d-flex"><label
+                                        class="form-control-label px-3">Foto</label> <input class="form-control"
+                                        type="file" id="image" name="image" value="<%= categorias.foto_categoria %>">
+                                </div>
+                            </div>
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-12 flex-column d-flex"> <button type="submit"
+                                        class="btn btn-primary text-black">Enviar</button> </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <% } %>
+                <% } %>
         </div>
     </div>
 </body>
+
 </html>

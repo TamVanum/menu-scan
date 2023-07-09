@@ -1,72 +1,60 @@
-const express = require('express');
-const { json } = require('express');
-const path = require('path');
-const multer = require('multer');
-const session = require('express-session');
-const { v4 : uuidv4 } = require('uuid');
+import express from 'express'
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
+import multer from 'multer'
+import session from 'express-session'
+import dotenv from 'dotenv'
 
-const app = express();
+import { router } from './router.js'
 
-app.use(express.urlencoded({extended:false}));
-app.use(express(json)); 
+// Configs
+dotenv.config({
+  path: '.env'
+})
 
-app.set('view engine', 'ejs');
-
+const findFolder = () => {
+  const currentFileUrl = import.meta.url
+  const currentFilePath = fileURLToPath(currentFileUrl)
+  const currentDirectory = dirname(currentFilePath)
+  return currentDirectory
+}
 
 const storage = multer.diskStorage({
-
-    destination: (req, file, cb) => {
-        let uploadPath = '';
-        if (req.body.formType === 'alimentos') {
-          uploadPath = path.join(__dirname, 'public/img/alimentos');
-        } else if (req.body.formType === 'categorias') {
-          uploadPath = path.join(__dirname, 'public/img/categorias');
-        }
-        cb(null, uploadPath);
-      },
-
-    filename: (req, file , cb) =>{
-        cb(null, file.originalname);
+  destination: (req, file, cb) => {
+    let uploadPath = ''
+    if (req.body.formType === 'alimentos') {
+      uploadPath = join(findFolder(), 'public/img/alimentos')
+    } else if (req.body.formType === 'categorias') {
+      uploadPath = join(findFolder(), 'public/img/categorias')
     }
-});
+    cb(null, uploadPath)
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname)
+  }
+})
 
-app.use(multer({
-    storage,
-}).single('image'));
+// App iniatilization
+const app = express()
 
+app.set('view engine', 'ejs')
+app.set('views', join(findFolder(), 'views'))
 
-
-// const storage = multer.diskStorage({
-//     destination: path.join(__dirname, 'public/img'),
-//     filename: (req, file , cb) =>{
-//         cb(null, uuidv4() + '.jpg');
-//     }
-// });
-
-// app.use(multer({
-//     storage,
-// }).single('image'));
-
-
-//Motor de plantillas
-app.set('views', path.join(__dirname,'views'));
-
-//Permitir ver imagenes señores
-app.use(express.static(path.join(__dirname,'public')));
-
-//Sessions
+app.use(express.static(join(findFolder(), 'public')))
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
+app.use(multer({ storage }).single('image'))
 app.use(session({
-    secret: "secret",
-    resave: true,
-    saveUninitialized: true
-}));
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}))
 
+// Routes
+app.use('/', router)
 
-app.use('/', require('./router'));
+export default { app }
 
-
-module.exports = app;
-
-app.listen(5000, ()=>{
-    console.log("SERVER andando localhost:5000");
-});
+app.listen(5000, () => {
+  console.log('SERVER andando http://localhost:5000')
+})

@@ -1,110 +1,122 @@
-
 <% if(menu) { %>
-<!doctype html>
-<html lang="en">
+  <!doctype html>
+  <html lang="en">
+
   <head>
-  	<title>Carousel 03</title>
+    <title>Carousel 03</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&display=swap" rel="stylesheet">
-		
-		<link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
-		<link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&display=swap"
+      rel="stylesheet">
 
-         <!-- Favicon-->
-         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-         <!-- Font Awesome icons (free version)-->
-         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-         <!-- Google fonts-->
-         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-         <!-- Core theme CSS (includes Bootstrap)-->
-         <link href="/estilo_tienda.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/estilo_tienda.css" rel="stylesheet" />
   </head>
+
   <body id="page-top">
 
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-            <div class="container">
-                <a class="" href="#page-top"><img src="/img/<%= menu.logo_menu %>" width="100%" height="75px" alt="..." /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars ms-1"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item px-3"><a class="nav-link" href="#portfolio">Comidas</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead" style="background-image: url('/img/banners/<%= menu.banner_menu %>');">
-            <div class="container">
-                <div class="masthead-subheading">Bienvenido a!</div>
-                <div class="masthead-heading text-uppercase"><%= menu.nombre_menu %></div>
-                <a class="btn btn-danger btn-xl text-uppercase text-black" href="#portfolio">Menu</a>
-            </div>
-        </header>
-		
-        <section class="ftco-section">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12 text-center">
-                  <h2 class="section-heading text-uppercase pb-3">Categorias</h2>
-                </div>
-                <div class="col-md-12">
-                  <div id="carousel" class="featured-carousel owl-carousel">
-                    <% categorias.forEach((categoria) => { %>
-                      <div class="item categoria">
-                        <div class="work">
-                          <div class="img d-flex align-items-end justify-content-center" style="background-image: url('/img/categorias/<%= categoria.foto_categoria %>');">
-                            <div class="text w-100">
-                              <h3>
-                                <a class="btn btn-primary btn-md text-uppercase text-black text-center" href="/carousel/<%= categoria.categoria_id %>"><%= categoria.nombre_categoria %></a>
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="" href="#page-top"><img src="/img/<%= menu.logo_menu %>" width="100%" height="75px" alt="..." /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+            <li class="nav-item px-3"><a class="nav-link" href="#portfolio">Comidas</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead" style="background-image: url('/img/banners/<%= menu.banner_menu %>');">
+      <div class="container">
+        <div class="masthead-subheading">Bienvenido a!</div>
+        <div class="masthead-heading text-uppercase">
+          <%= menu.nombre_menu %>
+        </div>
+        <a class="btn btn-danger btn-xl text-uppercase text-black" href="#portfolio">Menu</a>
+      </div>
+    </header>
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2 class="section-heading text-uppercase pb-3">Categorias</h2>
+          </div>
+          <div class="col-md-12">
+            <div id="carousel" class="featured-carousel owl-carousel">
+              <% categorias.forEach((categoria)=> { %>
+                <div class="item categoria">
+                  <div class="work">
+                    <div class="img d-flex align-items-end justify-content-center"
+                      style="background-image: url('/img/categorias/<%= categoria.foto_categoria %>');">
+                      <div class="text w-100">
+                        <h3>
+                          <a class="btn btn-primary btn-md text-uppercase text-black text-center"
+                            href="/carousel/<%= categoria.categoria_id %>">
+                            <%= categoria.nombre_categoria %>
+                          </a>
+                        </h3>
                       </div>
-                    <% }) %>
+                    </div>
                   </div>
+                </div>
+                <% }) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Portfolio Grid-->
+    <section class="page-section bg-light" id="portfolio">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-heading text-uppercase">Comidas</h2>
+          <h3 class="section-subheading text-muted">Todos las comidas que quieras probar.</h3>
+        </div>
+        <div class="row" id="alimentos-container">
+          <% alimentos.forEach((alimento)=> { %>
+            <div class="col-lg-4 col-sm-6 mb-4">
+              <!-- Portfolio item 1 -->
+              <div class="portfolio-item">
+                <a class="portfolio-link" data-bs-toggle="modal">
+                  <img class="" src="/img/alimentos/<%= alimento.foto_alimento %>" height="300px" width="100%"
+                    alt="..." />
+                </a>
+                <div class="portfolio-caption">
+                  <div class="portfolio-caption-heading">
+                    <%= alimento.nombre_alimento %>
+                  </div>
+                  <div class="portfolio-caption-subheading text-muted fs-4">$<%= alimento.precio %> CLP</div>
                 </div>
               </div>
             </div>
-          </section>
-          
-        
-                <!-- Portfolio Grid-->
-                <section class="page-section bg-light" id="portfolio">
-                    <div class="container">
-                        <div class="text-center">
-                            <h2 class="section-heading text-uppercase">Comidas</h2>
-                            <h3 class="section-subheading text-muted">Todos las comidas que quieras probar.</h3>
-                        </div>
-                        <div class="row" id="alimentos-container">
-                            <% alimentos.forEach((alimento) => { %>
-                              <div class="col-lg-4 col-sm-6 mb-4">
-                                <!-- Portfolio item 1 -->
-                                <div class="portfolio-item">
-                                  <a class="portfolio-link" data-bs-toggle="modal">
-                                    <img class="" src="/img/alimentos/<%= alimento.foto_alimento %>" height="300px" width="100%" alt="..." />
-                                  </a>
-                                  <div class="portfolio-caption">
-                                    <div class="portfolio-caption-heading"><%= alimento.nombre_alimento %></div>
-                                    <div class="portfolio-caption-subheading text-muted fs-4">$<%= alimento.precio %> CLP</div>
-                                  </div>
-                                </div>
-                              </div>
-                            <% }) %>
-                          </div>
-                          
-                    </div>
-                </section>
-        
-<!--         
+            <% }) %>
+        </div>
+
+      </div>
+    </section>
+
+    <!--         
                 <div class="py-5">
                     <div class="container">
                         <div class="row align-items-center">
@@ -123,25 +135,27 @@
                         </div>
                     </div>
                 </div> -->
-        
 
-                <!-- Footer-->
-                <footer class="footer py-4">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-lg-4 text-lg-start">Copyright &copy; <%= menu.nombre_menu %> 2023</div>
-                            <div class="col-lg-4 my-3 my-lg-0">
-                                <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                            <div class="col-lg-4 text-lg-end">
-                                <a class="link-dark text-decoration-none me-3" href="#!">Politicas de Privacidad</a>
-                                <a class="link-dark text-decoration-none" href="#!">Terminos y Condiciones</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+
+    <!-- Footer-->
+    <footer class="footer py-4">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-4 text-lg-start">Copyright &copy; <%= menu.nombre_menu %> 2023</div>
+          <div class="col-lg-4 my-3 my-lg-0">
+            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i
+                class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i
+                class="fab fa-linkedin-in"></i></a>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <a class="link-dark text-decoration-none me-3" href="#!">Politicas de Privacidad</a>
+            <a class="link-dark text-decoration-none" href="#!">Terminos y Condiciones</a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
 
     <script src="js/jquery.min.js"></script>
@@ -150,20 +164,21 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
-            <!-- Bootstrap core JS-->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-            <!-- Core theme JS-->
-            <script src="js/scripts_tienda.js"></script>
-            <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-            <!-- * *                               SB Forms JS                               * *-->
-            <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-            <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-            <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts_tienda.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
   </body>
-</html>
 
-<%}else{%>
-    
-  <p class="text-center fs-1">DENEGADOIDE</p>
+  </html>
 
-<%}%>
+  <%}else{%>
+
+    <p class="text-center fs-1">DENEGADOIDE</p>
+
+    <%}%>
